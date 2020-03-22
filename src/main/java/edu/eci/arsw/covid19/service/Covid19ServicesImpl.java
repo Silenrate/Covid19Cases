@@ -6,7 +6,7 @@ import edu.eci.arsw.covid19.connection.ConnectionCovidService;
 import edu.eci.arsw.covid19.controller.Covid19Exception;
 import edu.eci.arsw.covid19.model.Covid19ByCountry;
 import edu.eci.arsw.covid19.model.Stat;
-import javafx.util.Pair;
+import edu.eci.arsw.covid19.model.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

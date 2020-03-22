@@ -5,21 +5,17 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import edu.eci.arsw.covid19.controller.Covid19Exception;
-import javafx.util.Pair;
+import edu.eci.arsw.covid19.model.Pair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-
 /**
  * Clase que implementa la interfaz de servicios de obtencion de coordenadas de un lugar
  */
 @Service
-public class HTTPConnectionCoordinatesService implements ConnectionCoordinatesService,URLparser {
+public class HTTPConnectionCoordinatesService implements ConnectionCoordinatesService, URLparser {
 
     private String url;
     private String key;
@@ -34,6 +30,7 @@ public class HTTPConnectionCoordinatesService implements ConnectionCoordinatesSe
 
     /**
      * Obtiene las coordenas de un lugar
+     *
      * @param place Lugar a buscar
      * @return Un par con la longotud y latitud del lugar
      * @throws Covid19Exception - Cuando hubo un error de conexon o no existe ese lugar
@@ -52,9 +49,9 @@ public class HTTPConnectionCoordinatesService implements ConnectionCoordinatesSe
             coordinates = ((JSONObject) results.get(0)).getJSONObject("geometry");
         } catch (UnirestException e) {
             throw new Covid19Exception("Error de conexion con RapidAPI");
-        } catch (JSONException ex){
+        } catch (JSONException ex) {
             throw new Covid19Exception("No existe el lugar con casos de covid19");
         }
-        return new Pair<Long, Long>(coordinates.getLong("lng"),coordinates.getLong("lat"));
+        return new Pair<>(coordinates.getLong("lng"), coordinates.getLong("lat"));
     }
 }

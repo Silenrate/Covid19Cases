@@ -1,7 +1,7 @@
 package edu.eci.arsw.covid19.connection;
 
 import edu.eci.arsw.covid19.controller.Covid19Exception;
-import javafx.util.Pair;
+import edu.eci.arsw.covid19.model.Pair;
 
 /**
  * Interfaz de servicios de obtencion de coordenadas de un lugar
