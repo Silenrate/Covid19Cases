@@ -1,5 +1,5 @@
 var apiclient = (function () {
-    //var url='https://danielwalterosarswt2.herokuapp.com/airports/';
+    //var url='https://covid19cases.herokuapp.com/airports/';
     var url='http://localhost:8080/infected/';
     function buscar(name){
         axios({

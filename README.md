@@ -5,24 +5,42 @@ Desarrollador: Daniel Felipe Walteros Trujillo
 
 Link de la aplicación: [http://localhost:8080/](http://localhost:8080/)
 
-## Requisitos para ejecución de forma local
+## Requisitos para Ejecución de forma local
 
 - Maven
 - Java Versión 8
 
 ## Instrucciones de Ejecución Local
 
-1) Ubicarse en la carpeta `Covid19Cases` y desde el cmd de windows utilizar loa siguientes comandos:
-2) Para compilar `mvn package`
-3) Para ejecutar las pruebas `mvn test`
-4) Para ejecutar la aplicacion `mvn spring-boot:run` y dirigirse a la direccion [http://localhost:8080/](http://localhost:8080/) en cualquier web browser
+1) Cambiar la variable de url en apiclient por `http://localhost:8080/infected`
+
+    ![](img/cambioURL.PNG)
+
+2) Ubicarse en la carpeta `Covid19Cases` y desde el cmd de windows utilizar loa siguientes comandos:
+ 
+3) Para compilar `mvn package`
+
+4) Para ejecutar las pruebas `mvn test`
+
+5) Para ejecutar la aplicacion `mvn spring-boot:run` y dirigirse a la direccion [http://localhost:8080/](http://localhost:8080/) en cualquier web browser
 
 ## Intrucciones de Uso
 
 1) En el buscador ingresar el pais del cual se quieren conocer los casos de covid 19 y presionar el boton "Search"
+
+![](img/busqueda.PNG)
+
 2) La tabla cargará por provincia los cantidad de personas recuperadas, confirmadas y muertas por covid19; en caso de que el pais sea de geografía pequeña se cargara un resumen general de todo el país.
+
+![](img/tabla.PNG)
+
 3) Debajo de la tabla se cargará el número total de casos confirmados del país.
-4) Al final se encuentra un mapa con la ubicación de las providencias o del país mostrando la cantidad de perssonas confirmadas en la misma.
+
+![](img/total.PNG)
+
+4) Al final se encuentra un mapa con la ubicación de las providencias o del país mostrando la cantidad de perssonas confirmadas en la misma, el zoom del mapa a veces se carga de fora excesiva, por lo cual a veces se tiene que persionar el boton - del mapa varias veces para poder visualizarlo.
+
+![](img/mapa.PNG)
 
 ## Realizar Cambios de Dependencias
 
@@ -36,6 +54,7 @@ Por esta razón, para cambiar la forma en la que se obtienen los datos del covid
 
 - Implementando un clase que implemente la interfaz ConnectionCovidService si se van a tomar de otra forma.
 - Alterando los atributos url, host y key en la clase HTTPConnectionCovidService si van a tomarse de la misma forma, pero de otro recurso.
+
 ![](img/claseDatos.PNG)
 
 ### Realizar cambios en la obtención de coordenadas
@@ -48,6 +67,7 @@ Por esta razón, para cambiar la forma en la que se obtienen las coordenadas se 
 
 - Implementando un clase que implemente la interfaz ConnectionCoordinatesService si se van a tomar de otra forma.
 - Alterando los atributos url y key en la clase HTTPConnectionCovidService si van a tomarse de la misma forma, pero de otro recurso.
+
 ![](img/claseCoordenadas.PNG)
 
 ### Realizar cambios en la implementación de los servicios
