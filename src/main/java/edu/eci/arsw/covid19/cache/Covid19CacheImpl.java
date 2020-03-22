@@ -26,7 +26,7 @@ public class Covid19CacheImpl implements Covid19Cache {
         //System.out.println(casos);
         Covid19ByCountry caso = casos.get(country);
         if (caso == null) {
-            throw new Covid19Exception("No se encuentra ese aeropuerto en cache");
+            throw new Covid19Exception("No se encuentra ese caso en cache");
         }
         return caso;
     }
@@ -68,7 +68,7 @@ public class Covid19CacheImpl implements Covid19Cache {
         if (isCountryInCache(country)) {
             casos.remove(country);
         } else {
-            throw new Covid19Exception("Ese aeropuerto no existe en cache");
+            throw new Covid19Exception("Ese pais no existe en cache");
         }
     }
 }

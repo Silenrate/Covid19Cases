@@ -28,8 +28,6 @@ public class HTTPConnectionCoordinatesService implements ConnectionCoordinatesSe
      * Constructor de la conexion por HTTP
      */
     public HTTPConnectionCoordinatesService() {
-        //https://api.opencagedata.com/geocode/v1/json?q=PLACENAME&key=YOUR-API-KEY
-
         url = "https://api.opencagedata.com/geocode/v1/json?q=";
         key = "609f13ebeac04c6d834a4deb7c9b751a";
     }
