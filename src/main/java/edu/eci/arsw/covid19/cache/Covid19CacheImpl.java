@@ -4,6 +4,7 @@ import edu.eci.arsw.covid19.controller.Covid19Exception;
 import edu.eci.arsw.covid19.model.Covid19ByCountry;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -12,6 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class Covid19CacheImpl implements Covid19Cache {
 
+    private static final long MINUTES_IN_CACHE = 5;
     private ConcurrentHashMap<String, Covid19ByCountry> casos = new ConcurrentHashMap<>();
 
     /**
@@ -23,7 +25,6 @@ public class Covid19CacheImpl implements Covid19Cache {
      */
     @Override
     public Covid19ByCountry getCovid19FromCountry(String country) throws Covid19Exception {
-        //System.out.println(casos);
         Covid19ByCountry caso = casos.get(country);
         if (caso == null) {
             throw new Covid19Exception("No se encuentra ese caso en cache");
@@ -38,8 +39,16 @@ public class Covid19CacheImpl implements Covid19Cache {
      * @return El valor booleano que determina si existe en el cache casos de covid19 de un pais
      */
     @Override
-    public boolean isCountryInCache(String country) {
-        return casos.get(country) != null;
+    public boolean isCountryInCache(String country) throws Covid19Exception {
+        Covid19ByCountry caso = casos.get(country);
+        boolean isInCache = true;
+        if (caso == null) {
+            isInCache = false;
+        } else if (LocalDateTime.now().isAfter(caso.getTime().plusMinutes(MINUTES_IN_CACHE))) {
+            cleanCaseOfCache(country);
+            isInCache = false;
+        }
+        return isInCache;
     }
 
     /**
@@ -64,11 +73,7 @@ public class Covid19CacheImpl implements Covid19Cache {
      * @throws Covid19Exception - Cuando no existe ese pais en el cache
      */
     @Override
-    public void cleanAirportCache(String country) throws Covid19Exception {
-        if (isCountryInCache(country)) {
-            casos.remove(country);
-        } else {
-            throw new Covid19Exception("Ese pais no existe en cache");
-        }
+    public void cleanCaseOfCache(String country) throws Covid19Exception {
+        casos.remove(country);
     }
 }

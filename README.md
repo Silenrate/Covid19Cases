@@ -3,7 +3,7 @@ Aplicación web de obtención de casos de covid19 en el mundo
 
 Desarrollador: Daniel Felipe Walteros Trujillo
 
-Link de la aplicación: [http://localhost:8080/](http://localhost:8080/)
+Link de la aplicación: [covid19infectedcases.herokuapp.com](https://covid19infectedcases.herokuapp.com/)
 
 ## Requisitos para Ejecución de forma local
 
@@ -12,7 +12,7 @@ Link de la aplicación: [http://localhost:8080/](http://localhost:8080/)
 
 ## Instrucciones de Ejecución Local
 
-1) Cambiar la variable de url en apiclient por `http://localhost:8080/infected`
+1) Cambiar la variable de url en apiclient.js localizado en src/main/reources/static/js por `http://localhost:8080/infected`
 
     ![](img/cambioURL.PNG)
 
@@ -89,6 +89,10 @@ En la clase de servicios, se implementa el caché por medio de una interfaz inye
 Por esta razón, para cambiar la forma en la que los datos se guardan en caché se puede implementar un clase que implemente la interfaz ConnectionCoordinatesService.
 
 ![](img/claseCache.PNG)
+
+Para cambiar el tiempo que se almacenan los datos en cache hay que cambiar la variable MINUTES_IN_CACHE en CovidCacheImpl.
+
+![](img/tiempoCache.PNG)
 
 ### Realizar cambios en la implementación de la página web
 

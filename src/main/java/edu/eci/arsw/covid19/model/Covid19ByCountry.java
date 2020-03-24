@@ -1,5 +1,7 @@
 package edu.eci.arsw.covid19.model;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -7,8 +9,10 @@ import java.util.List;
  */
 public class Covid19ByCountry {
 
-    String country;
-    List<Stat> stats;
+    private LocalDateTime time;
+    private String country;
+    private List<Stat> stats;
+
 
     /**
      * Constructor de la clase coivd19ByCountry
@@ -18,12 +22,22 @@ public class Covid19ByCountry {
     public Covid19ByCountry(List<Stat> stats, String country) {
         this.stats = stats;
         this.country = country;
+        this.time = LocalDateTime.now();
     }
 
     /**
      * Constructor por defecto de la clase coivd19ByCountry
      */
     public Covid19ByCountry() {
+        this.time = LocalDateTime.now();
+    }
+
+    /**
+     * Obtiene el momento en el cual se obtuvieron los casos de covid19
+     * @return Un LocalDateTime con el momento en el cual se obtuvieron los casos de covid19
+     */
+    public LocalDateTime getTime() {
+        return time;
     }
 
     /**

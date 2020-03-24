@@ -28,13 +28,13 @@ public interface Covid19Cache {
      * @param country El nombre del pais
      * @throws Covid19Exception - Cuando no existe ese pais en el cache
      */
-    void cleanAirportCache(String country) throws Covid19Exception;
+    void cleanCaseOfCache(String country) throws Covid19Exception;
 
     /**
      * Averigua si existen en el cache casos de covid19 de un pais
      * @param country El nombre del pais
      * @return El valor booleano que determina si existe en el cache casos de covid19 de un pais
      */
-    boolean isCountryInCache(String country);
+    boolean isCountryInCache(String country) throws Covid19Exception;
 
 }
