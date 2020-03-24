@@ -5,6 +5,8 @@ Desarrollador: Daniel Felipe Walteros Trujillo
 
 Link de la aplicación: [covid19infectedcases.herokuapp.com](https://covid19infectedcases.herokuapp.com/)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/98ac41f40e8f407498320bf024aa8884)](https://www.codacy.com/manual/Silenrate/Covid19Cases?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Silenrate/Covid19Cases&amp;utm_campaign=Badge_Grade)
+
 ## Requisitos para Ejecución de forma local
 
 - Maven
