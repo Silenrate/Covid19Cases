@@ -30,7 +30,7 @@ public class HttpConnectorApplicationTests {
     @Test
     public void shouldNotGetCovid19CasesByCountryNameIfDoesntExist() {
         try {
-            Covid19ByCountry response = connectionCovidService.getCaseByCountry("galleta");
+            connectionCovidService.getCaseByCountry("galleta");
             fail("Debio fallar por consultar aeropuertos por un nombre inexistente");
         } catch (Covid19Exception e) {
             assertEquals("No existe el pais galleta", e.getMessage());
