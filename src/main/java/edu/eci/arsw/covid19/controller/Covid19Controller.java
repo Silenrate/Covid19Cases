@@ -23,7 +23,8 @@ public class Covid19Controller {
 
     /**
      * Obtiene los casos de covid19 de un pais
-     * @return Una entidad de respuesta con respecto al resulatdo del servicio, Accepted si existe y NOT FOUND si no
+     * @param country Nombre del pais
+     * @return Una entidad de respuesta con respecto al resulatdo del servicio, 202 ACCEPTED si existe y 404 NOT FOUND si no
      */
     @RequestMapping(value = "/{country}",method = RequestMethod.GET)
     public ResponseEntity<?> getCasesByCountry(@PathVariable("country") String country) {

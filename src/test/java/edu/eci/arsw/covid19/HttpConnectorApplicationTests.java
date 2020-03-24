@@ -21,14 +21,14 @@ public class HttpConnectorApplicationTests {
 
 
     @Test
-    public void shouldGetAirportsByName() throws Covid19Exception {
+    public void shouldGetCovid19CasesByCountryName() throws Covid19Exception {
         Covid19ByCountry response = connectionCovidService.getCaseByCountry("Colombia");
         assertNotNull(response);
         assertEquals("Colombia", response.getCountry());
     }
 
     @Test
-    public void shouldNotGetAirportsByNameIfDoesntExist() {
+    public void shouldNotGetCovid19CasesByCountryNameIfDoesntExist() {
         try {
             Covid19ByCountry response = connectionCovidService.getCaseByCountry("galleta");
             fail("Debio fallar por consultar aeropuertos por un nombre inexistente");

@@ -34,6 +34,7 @@ public interface Covid19Cache {
      * Averigua si existen en el cache casos de covid19 de un pais
      * @param country El nombre del pais
      * @return El valor booleano que determina si existe en el cache casos de covid19 de un pais
+     * @throws Covid19Exception - Si hubo un error al validar la existencia de ese caso en cache
      */
     boolean isCountryInCache(String country) throws Covid19Exception;
 

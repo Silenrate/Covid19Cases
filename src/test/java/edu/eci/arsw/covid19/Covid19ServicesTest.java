@@ -20,19 +20,19 @@ public class Covid19ServicesTest {
     Covid19Services covid19Services;
 
     @Test
-    public void shouldGetAirportsByName() throws Covid19Exception {
+    public void shouldGetCovid19CasesByCountryName() throws Covid19Exception {
         Covid19ByCountry response = covid19Services.getCovid19FromCountry("Colombia");
         assertNotNull(response);
         assertEquals("Colombia", response.getCountry());
     }
 
     @Test
-    public void shouldNotGetAirportsByNameIfDoesntExist(){
+    public void shouldNotGetCovid19CasesByCountryNameIfDoesntExist() {
         try {
             Covid19ByCountry response = covid19Services.getCovid19FromCountry("galleta");
             fail("Debio fallar por consultar aeropuertos por un nombre inexistente");
         } catch (Covid19Exception e) {
-            assertEquals("Error al obtener casos",e.getMessage());
+            assertEquals("Error al obtener casos", e.getMessage());
         }
     }
 

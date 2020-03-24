@@ -9,6 +9,7 @@ import edu.eci.arsw.covid19.model.Covid19ByCountry;
 public interface Covid19Services {
     /**
      * Obtiene los casos de infectados de covid19 por pais
+     * @param country Nombre del pais
      * @return Un string de los casos de infectados de covid19 por pais
      * @throws Covid19Exception - Cusndo hay error de conexion o no existe ese pais
      */
