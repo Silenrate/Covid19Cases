@@ -26,6 +26,7 @@ package edu.eci.arsw.covid19.model;
  */
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * <p>A convenience class to represent name-value pairs.</p>
@@ -39,6 +40,11 @@ public class Pair<K, V> implements Serializable {
     private K key;
 
     /**
+     * Value of this this <code>Pair</code>.
+     */
+    private V value;
+
+    /**
      * Gets the key for this pair.
      *
      * @return key for this pair
@@ -46,11 +52,6 @@ public class Pair<K, V> implements Serializable {
     public K getKey() {
         return key;
     }
-
-    /**
-     * Value of this this <code>Pair</code>.
-     */
-    private V value;
 
     /**
      * Gets the value for this pair.
@@ -123,9 +124,7 @@ public class Pair<K, V> implements Serializable {
         if (this == o) return true;
         if (o instanceof Pair) {
             Pair pair = (Pair) o;
-            if (key != null ? !key.equals(pair.key) : pair.key != null) return false;
-            if (value != null ? !value.equals(pair.value) : pair.value != null) return false;
-            return true;
+            return Objects.equals(key, pair.key) && Objects.equals(value, pair.value);
         }
         return false;
     }

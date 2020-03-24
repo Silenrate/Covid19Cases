@@ -1,5 +1,7 @@
 package edu.eci.arsw.covid19.connection;
 
+import edu.eci.arsw.covid19.controller.Covid19Exception;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -13,12 +15,12 @@ public interface URLparser {
      * @param cadena cadena de texto a codificar
      * @return cadena de texto codificada
      */
-    default String getStringInUrl(String cadena){
+    default String getStringInUrl(String cadena) throws Covid19Exception {
         String encodedQuery;
         try {
             encodedQuery = URLEncoder.encode(cadena, StandardCharsets.UTF_8.toString());
         } catch (UnsupportedEncodingException ex) {
-            throw new RuntimeException(ex.getCause());
+            throw new Covid19Exception("Error al convertir "+cadena,ex.getCause());
         }
         return encodedQuery.replace("+","%20");
     }

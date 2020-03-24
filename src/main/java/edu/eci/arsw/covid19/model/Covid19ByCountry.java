@@ -1,6 +1,5 @@
 package edu.eci.arsw.covid19.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
