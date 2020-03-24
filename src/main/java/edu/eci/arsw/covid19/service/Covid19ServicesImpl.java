@@ -42,7 +42,7 @@ public class Covid19ServicesImpl implements Covid19Services {
                 covid19ByCountry = connectioncovidService.getCaseByCountry(country);
                 for (Stat stat : covid19ByCountry.getStats()) {
                     String place = stat.getProvince();
-                    if (place.equals("")) {
+                    if ("".equals(place)) {
                         place = country;
                     } else {
                         place += ", " + country;
